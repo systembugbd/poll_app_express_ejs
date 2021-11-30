@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: helvetica, arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 2rem;
+}
+
+.card,
+.card--home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  flex-basis: 100%;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 20px;
+  transition: all 0.5s ease-in;
+}
+.card--home {
+  flex-direction: column;
+}
+.card__from-group {
+  margin-top: 20px;
+  flex-direction: row;
+}
+@media only screen and (min-width: 426px) {
+  .card {
+    width: 400px;
+  }
+}
+
+form,
+input,
+textarea {
+  width: 100%;
+}
+.from-group {
+  width: 100%;
+  padding-top: 20px;
+}
+h2 {
+  color: #444444;
+}
+h3,
+a {
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 10px;
+  color: #808080;
+  cursor: pointer;
+}
+#options input:not(:first-child) {
+  margin-top: 10px;
+}
+.show {
+  display: block;
+  transition: all 0.5s ease-in;
+}
+.hide {
+  display: none;
+  transition: all 0.5s ease-in;
+}
+.remove {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: rgb(243, 150, 150);
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.remove:hover {
+  font-weight: bold;
+  background: rgb(245, 64, 64);
+}
+input {
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+}
+textarea {
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #e3e3e3;
+  padding: 10px;
+}
+.card--home {
+  text-align: center;
+}
+.card__from-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.card__from-group a {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 426px) {
+  .card__from-group {
+    flex-direction: row;
+  }
+  .card__from-group a {
+    width: auto;
+  }
+}
+
+button,
+.btnPollList,
+.btnCreate,
+.btnBacktohome {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.options,
+.btnPollList {
+  background-color: #0076ce;
+}
+
+button.create,
+.btnCreate {
+  background-color: #a37904;
+}
+
+.btnBacktohome {
+  background-color: green;
+}
