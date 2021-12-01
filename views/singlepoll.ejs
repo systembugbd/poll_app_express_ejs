@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Your Poll</title>
+       <meta name="description" content="">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+       <!--[if lt IE 7]>
+                     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+              <![endif]-->
+
+       <div class="container">
+              <div class="card card--list">
+                     <h2>Your Poll</h2>
+                     <div class="poll card--list__form-group">
+                            <h4>
+                                   <%= poll.title %>
+                            </h4>
+                            <p>
+                                   <%= poll.description %>
+                            </p>
+
+                            <div class="poll__item">
+                                   <form method="post" action='/polls/<%= poll._id %>'>
+                                          <% for(let option of poll.options){ %>
+
+                                                 <div class="radiobtn">
+                                                        <input type="radio" name="poll" id="<%= option.id %>"
+                                                             class="poll" value="radio" />
+                                                        <label for="<%= option.id %>">
+                                                               <%= option.name %>
+                                                        </label>
+                                                 </div>
+                                                 <% } %>
+                                                        <div class="from-group">
+
+                                                               <button type="submit" class="create"
+                                                                    id="createOption">Submit Opinion</button>
+                                                               <a href="/" class="btnBacktohome" id="backtoHome">Back to
+                                                                      home</a>
+                                                        </div>
+
+
+                                   </form>
+                            </div>
+
+
+
+
+                     </div>
+
+              </div>
+       </div>
+
+       <!-- <script src="../assets/js/poll.js" async defer></script> -->
+</body>
+
+</html>

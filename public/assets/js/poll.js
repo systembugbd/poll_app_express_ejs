@@ -2,9 +2,9 @@ const addOption = document.getElementById('addOption');
 const createOption = document.getElementById('createOption');
 const showHideOptions = document.getElementById('showHideOptions');
 const options = document.getElementById('options');
+const option = document.querySelectorAll('.option');
 
-let optionCount = 5;
-let itemLen = 0;
+let optionCount = option.length + 1;
 
 addOption.addEventListener('click', (e) => {
   e.preventDefault();
@@ -14,24 +14,30 @@ addOption.addEventListener('click', (e) => {
   removeExtraOption();
   itemLen = document.querySelectorAll('.remove').length;
 });
+
 const removeExtraOption = () => {
   const remove = document.querySelectorAll('.remove');
 
-  itemLen = itemLen - 1;
   remove.forEach((item, i) => {
     item.addEventListener('click', (e) => {
-      if (itemLen <= 1) {
-        optionCount = 5;
-        itemLen = 1;
-      } else {
-        itemLen = remove.length;
-        optionCount = 5;
-        optionCount = optionCount + itemLen;
+      console.log(optionCount);
+      optionCount = 3 + countNewInput();
+      const checkOptionID = document.getElementById('option' + optionCount);
+      if (checkOptionID) {
+        optionCount += 1;
       }
       e.currentTarget.parentNode.remove();
     });
   });
 };
+
+const countNewInput = () => {
+  let newInput = document.querySelectorAll('.remove');
+  return newInput.length;
+};
+/**
+ * @returns Element (new input element)
+ */
 const createNewOptions = () => {
   let div = document.createElement('div');
   let input = document.createElement('input');
@@ -43,8 +49,9 @@ const createNewOptions = () => {
 
   /*Input text*/
   input.type = 'text';
-  input.name = 'option' + optionCount;
+  input.name = 'options';
   input.placeholder = 'Option ' + optionCount;
+  input.classList.add('option');
 
   /*input count ++*/
   optionCount++;

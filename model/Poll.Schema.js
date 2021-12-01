@@ -11,12 +11,22 @@ const pollSchema = new mongoose.Schema({
     required: [true, 'Description is required'],
     trim: true,
   },
-  totalVote: Number,
+  totalVote: {
+    type: Number,
+    default: 0,
+  },
   options: {
-    type: {
-      name: String,
-      vote: Number,
-    },
+    type: [
+      {
+        name: String,
+
+        vote: {
+          type: Number,
+          default: 0,
+        },
+      },
+    ],
+    required: [true, 'Poll option is required'],
   },
 });
 

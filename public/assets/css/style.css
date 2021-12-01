@@ -109,6 +109,23 @@ textarea {
 .card--home {
   text-align: center;
 }
+.card--list,
+.card__from-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card--list__form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.card--list__form-group ul {
+  margin-bottom: 2rem;
+}
 .card__from-group {
   display: flex;
   justify-content: space-between;
@@ -154,4 +171,15 @@ button.create,
 
 .btnBacktohome {
   background-color: green;
+}
+
+.radiobtn {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 10px;
+  align-items: center;
+}
+
+.radiobtn input {
+  width: 20%;
 }

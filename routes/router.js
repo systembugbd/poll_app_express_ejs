@@ -1,13 +1,19 @@
 const app = require('express');
 const {
   homeController,
-  createPollController,
+  createGetPollController,
+  createPostPollController,
   pollListController,
+  getSinglePollController,
 } = require('../controller/routerController');
 const router = app.Router();
 
 router.route('/').get(homeController);
-router.route('/create').get(createPollController);
+router
+  .route('/create')
+  .get(createGetPollController)
+  .post(createPostPollController);
 router.route('/list').get(pollListController);
+router.route('/list/:pollId').get(getSinglePollController);
 
 module.exports = router;

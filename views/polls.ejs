@@ -20,25 +20,28 @@
               <![endif]-->
 
        <div class="container">
-              <div class="card card--home">
+              <div class="card card--list">
                      <h2>Welcome to Poll Maker</h2>
-                     <div class="card__from-group">
+                     <div class="card--list__form-group">
                             <ul>
-                                   <li>list of poll</li>
-                                   <li>list of poll</li>
-                                   <li>list of poll</li>
-                                   <li>list of poll</li>
-                                   <li>list of poll</li>
-                            </ul><br><br>
-                            <a href="/" class="btnPollList" id="polllist">Back to home</a>
-                            <a href="/create" class="btnCreate" id="createNewPoll">Create New Poll</a>
-
+                                   <% for(let poll of polls) { %>
+                                          <li class="form-group">
+                                                 <a href="/list/<%= poll._id %>">
+                                                        <%= poll.title %>
+                                                 </a>
+                                          </li>
+                                          <% } %>
+                            </ul>
+                            <div class="btn--link">
+                                   <a href="/" class="btnPollList" id="polllist">Back to home</a>
+                                   <a href="/create" class="btnCreate" id="createNewPoll">Create New Poll</a>
+                            </div>
                      </div>
 
               </div>
        </div>
 
-       <script src="../assets/js/poll.js" async defer></script>
+       <!-- <script src="../assets/js/poll.js" async defer></script> -->
 </body>
 
 </html>
