@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Your Poll</title>
+       <meta name="description" content="">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+       <!--[if lt IE 7]>
+                     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+              <![endif]-->
+
+       <div class="container">
+              <div class="card card--list">
+                     <h2>Your Poll</h2>
+                     <h4>
+                            <%= poll.title %>
+
+                     </h4>
+                     <h5>
+                            <%= poll.description %>
+
+                     </h5>
+                     <h6>
+                            Total Vote <%= poll.totalVote %>
+
+                     </h6>
+                     <ul class="vote">
+                            <% let i=0; for (let p of results) { %>
+
+
+
+                                   <li class="item">
+                                          <span class="percentage"
+                                               style="--percentage: <%= p.percentage.toFixed(2) %>%">
+                                                 <span class="item__name">
+                                                        <%= p[i].name %>
+                                                 </span>
+                                                 - <span class="item__votecust">
+                                                        <%= p[i].vote %> Vote cust
+
+                                                 </span>-
+                                                 <span class="item__percentagetotal">Total <%= p.percentage.toFixed(2)
+                                                             %>%</span>
+                                          </span>
+                                   </li>
+
+
+
+
+                                   <% i++; } %>
+                     </ul>
+                     <a href=" /list/<%=poll._id %>" class="btnBacktohome" id="backtoHome">Vote
+                            again</a>
+
+              </div>
+       </div>
+
+       <!-- <script src="../assets/js/poll.js" async defer></script> -->
+</body>
+
+</html>

@@ -36,7 +36,7 @@
 }
 @media only screen and (min-width: 426px) {
   .card {
-    width: 400px;
+    width: auto;
   }
 }
 
@@ -121,7 +121,8 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 0;
+  width: 100%;
 }
 .card--list__form-group ul {
   margin-bottom: 2rem;
@@ -179,7 +180,43 @@ button.create,
   padding-top: 10px;
   align-items: center;
 }
+.poll__item,
+label {
+  width: 100%;
+}
 
 .radiobtn input {
   width: 20%;
+}
+
+span.percentage::before {
+  content: '';
+  border-bottom: 12px solid rgba(0, 128, 0, 0.356);
+  width: var(--percentage);
+  padding: 10px;
+  position: absolute;
+}
+span.percentage {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 100%;
+}
+.vote {
+  list-style: none;
+  width: 100%;
+}
+li.item {
+  padding: 10px;
+  margin: 10px;
+}
+.item__name {
+  color: green;
+}
+.item__votecust {
+  color: #a37904;
+}
+
+.item__percentagetotal {
+  color: tomato;
 }

@@ -2,6 +2,8 @@ const addOption = document.getElementById('addOption');
 const createOption = document.getElementById('createOption');
 const showHideOptions = document.getElementById('showHideOptions');
 const options = document.getElementById('options');
+const submitOpinion = document.getElementById('submitOpinion');
+
 const option = document.querySelectorAll('.option');
 
 let optionCount = option.length + 1;
@@ -95,3 +97,7 @@ const showSection = () => {
 /**
  * remove Extra options
  */
+
+submitOpinion.addEventListener('click', (e) => {
+  console.log('I am clicked');
+});

@@ -5,6 +5,8 @@ const {
   createPostPollController,
   pollListController,
   getSinglePollController,
+  getSinglePollByIdAndPostController,
+  getSinglePollByIdAndGetController,
 } = require('../controller/routerController');
 const router = app.Router();
 
@@ -15,5 +17,9 @@ router
   .post(createPostPollController);
 router.route('/list').get(pollListController);
 router.route('/list/:pollId').get(getSinglePollController);
+router
+  .route('/polls/:pollId')
+  .post(getSinglePollByIdAndPostController)
+  .get(getSinglePollByIdAndGetController);
 
 module.exports = router;

@@ -16,8 +16,8 @@
 
 <body>
        <!--[if lt IE 7]>
-                     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-              <![endif]-->
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
        <div class="container">
               <div class="card card--list">
@@ -31,12 +31,12 @@
                             </p>
 
                             <div class="poll__item">
-                                   <form method="post" action='/polls/<%= poll._id %>'>
+                                   <form method="post" action='/polls/<%= poll._id %>' id="form">
                                           <% for(let option of poll.options){ %>
 
                                                  <div class="radiobtn">
-                                                        <input type="radio" name="poll" id="<%= option.id %>"
-                                                             class="poll" value="radio" />
+                                                        <input type="radio" name="option" id="<%= option.id %>"
+                                                             class="radio" value="<%= option.id %>" />
                                                         <label for="<%= option.id %>">
                                                                <%= option.name %>
                                                         </label>
@@ -44,10 +44,12 @@
                                                  <% } %>
                                                         <div class="from-group">
 
-                                                               <button type="submit" class="create"
-                                                                    id="createOption">Submit Opinion</button>
+                                                               <button type="submit" class="create" id="submitOpinion"
+                                                                    onclick="check()">Submit Opinion</button>
+                                                               <a href="/polls/<%= poll._id %>" class="btnPollList"
+                                                                    id="btnPollList">View Poll Results</a>
                                                                <a href="/" class="btnBacktohome" id="backtoHome">Back to
-                                                                      home</a>
+                                                                      Home</a>
                                                         </div>
 
 
@@ -55,13 +57,30 @@
                             </div>
 
 
-
+                            <span id="msg"></span>
 
                      </div>
 
               </div>
        </div>
+       <script>
+              // function check() {
+              //        let options = document.querySelectorAll('.radio')
+              //        let form = document.getElementById('form')
+              //        let msg = document.getElementById('msg')
+              //        options.forEach((radio, i) => {
 
+              //               if (radio.checked != true) {
+
+              //                      form.submit()
+
+              //               } else {
+              //                      msg.innerHTML = "Please select atleast one"
+
+              //               }
+              //        })
+              // }
+       </script>
        <!-- <script src="../assets/js/poll.js" async defer></script> -->
 </body>
 
