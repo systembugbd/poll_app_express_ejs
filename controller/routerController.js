@@ -1,10 +1,10 @@
-const Poll = require('../model/Poll.Schema');
+const Poll = require("../model/Poll.Schema");
 
 const homeController = (req, res) => {
-  res.render('home');
+  res.render("index");
 };
 const createGetPollController = (req, res) => {
-  res.render('create');
+  res.render("create");
 };
 
 const createPostPollController = async (req, res) => {
@@ -18,8 +18,6 @@ const createPostPollController = async (req, res) => {
     }
   });
 
-  console.log(options);
-
   let poll = new Poll({
     title,
     description,
@@ -28,7 +26,7 @@ const createPostPollController = async (req, res) => {
 
   try {
     await poll.save();
-    res.redirect('/list');
+    res.redirect("/list");
   } catch (error) {
     console.log(error);
   }
@@ -36,8 +34,8 @@ const createPostPollController = async (req, res) => {
 const pollListController = async (req, res) => {
   try {
     let polls = await Poll.find();
-    console.log(polls);
-    res.render('polls', { polls });
+
+    res.render("polls", { polls });
   } catch (error) {
     console.log(error);
   }
@@ -46,7 +44,7 @@ const pollListController = async (req, res) => {
 const getSinglePollController = async (req, res) => {
   let id = req.params.pollId;
   let poll = await Poll.findById(id);
-  res.render('singlepoll', { poll });
+  res.render("singlepoll", { poll });
 };
 
 const getSinglePollByIdAndPostController = async (req, res) => {
@@ -66,7 +64,7 @@ const getSinglePollByIdAndPostController = async (req, res) => {
       { $set: { options, totalVote } }
     );
 
-    res.redirect('/list/' + pollId);
+    res.redirect("/list/" + pollId);
   } catch (error) {
     console.log(error);
   }
@@ -86,7 +84,7 @@ const getSinglePollByIdAndGetController = async (req, res) => {
       });
     });
 
-    res.render('viewresults', { poll, results });
+    res.render("viewresults", { poll, results });
   } catch (error) {
     console.log(error);
   }

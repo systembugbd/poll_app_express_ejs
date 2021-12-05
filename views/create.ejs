@@ -4,61 +4,80 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+    <title>Poll App - By Shaheb</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
 
-<head>
-       <meta charset="utf-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <title></title>
-       <meta name="description" content="">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="../assets/css/style.css">
-</head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
 
-<body>
-       <!--[if lt IE 7]>
-                     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-              <![endif]-->
-
-       <div class="container">
-              <div class="card">
-                     <h2>Create A Poll</h2>
-                     <form method="post" action="/create">
-                            <div class="from-group">
-                                   <label>
-                                          <h3>Title</h3>
-                                          <input type="text" required name="title">
-                                   </label>
-                            </div>
-                            <div class="from-group">
-                                   <label>
-                                          <h3>Description</h3>
-                                          <textarea name="description" required rows="5"></textarea>
-                                   </label>
-                            </div>
-                            <div class="from-group" id="optionsContainer">
-                                   <label>
-                                          <h3 id="showHideOptions">Enter your Options (Click me to hide options section)
-                                          </h3>
-                                          <div class="options show" id="options">
-                                                 <input type="text" name="options" required id="option1" class="option"
-                                                      placeholder="Option 1">
-                                                 <input type="text" name="options" required id="option2" class="option"
-                                                      placeholder="Option 2">
-                                          </div>
-                                   </label>
-                            </div>
-
-                            <div class="from-group">
-                                   <button type="button" class="options" id="addOption">Add Options</button><br><br>
-                                   <button type="submit" class="create" id="createOption">Create Poll</button>
-                                   <a href="/" class="btnBacktohome" id="backtoHome">Back to home</a>
-                            </div>
-                            <span class="msg" id="msg"></span>
-                     </form>
+    <div class="container">
+      <div class="card">
+        <h2>Create A Poll</h2>
+        <form method="post" action="/create">
+          <div class="from-group">
+            <label>
+              <h3>Title</h3>
+              <input type="text" required name="title" />
+            </label>
+          </div>
+          <div class="from-group">
+            <label>
+              <h3>Description</h3>
+              <textarea name="description" required rows="5"></textarea>
+            </label>
+          </div>
+          <div class="from-group" id="optionsContainer">
+            <label>
+              <h3 id="showHideOptions">
+                Enter your Options (Click me to hide options section)
+              </h3>
+              <div class="options show" id="options">
+                <input
+                  type="text"
+                  name="options"
+                  required
+                  id="option1"
+                  class="option"
+                  placeholder="Option 1"
+                />
+                <input
+                  type="text"
+                  name="options"
+                  required
+                  id="option2"
+                  class="option"
+                  placeholder="Option 2"
+                />
               </div>
-       </div>
+            </label>
+          </div>
 
-       <script src="../assets/js/poll.js" async defer></script>
-</body>
+          <div class="from-group">
+            <button type="button" class="options" id="addOption">
+              Add Options</button
+            ><br /><br />
+            <button type="submit" class="create" id="createOption">
+              Create Poll
+            </button>
+            <a href="/" class="btnBacktohome" id="backtoHome">Back to home</a>
+          </div>
+          <span class="msg" id="msg"></span>
+        </form>
+      </div>
+    </div>
 
+    <script src="../assets/js/poll.js" async defer></script>
+  </body>
 </html>

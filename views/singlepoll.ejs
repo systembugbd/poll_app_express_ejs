@@ -4,84 +4,90 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+    <title>Poll App - By Shaheb</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
 
-<head>
-       <meta charset="utf-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <title>Your Poll</title>
-       <meta name="description" content="">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="../assets/css/style.css">
-</head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
 
-<body>
-       <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+    <div class="container">
+      <div class="card card--list">
+        <h2>Your Poll</h2>
+        <div class="poll card--list__form-group">
+          <h4><%= poll.title %></h4>
+          <p><%= poll.description %></p>
 
-       <div class="container">
-              <div class="card card--list">
-                     <h2>Your Poll</h2>
-                     <div class="poll card--list__form-group">
-                            <h4>
-                                   <%= poll.title %>
-                            </h4>
-                            <p>
-                                   <%= poll.description %>
-                            </p>
+          <div class="poll__item">
+            <form method="post" action="/polls/<%= poll._id %>" id="form">
+              <% for(let option of poll.options){ %>
 
-                            <div class="poll__item">
-                                   <form method="post" action='/polls/<%= poll._id %>' id="form">
-                                          <% for(let option of poll.options){ %>
-
-                                                 <div class="radiobtn">
-                                                        <input type="radio" name="option" id="<%= option.id %>"
-                                                             class="radio" value="<%= option.id %>" />
-                                                        <label for="<%= option.id %>">
-                                                               <%= option.name %>
-                                                        </label>
-                                                 </div>
-                                                 <% } %>
-                                                        <div class="from-group">
-
-                                                               <button type="submit" class="create" id="submitOpinion"
-                                                                    onclick="check()">Submit Opinion</button>
-                                                               <a href="/polls/<%= poll._id %>" class="btnPollList"
-                                                                    id="btnPollList">View Poll Results</a>
-                                                               <a href="/" class="btnBacktohome" id="backtoHome">Back to
-                                                                      Home</a>
-                                                        </div>
-
-
-                                   </form>
-                            </div>
-
-
-                            <span id="msg"></span>
-
-                     </div>
-
+              <div class="radiobtn">
+                <input
+                  type="radio"
+                  name="option"
+                  id="<%= option.id %>"
+                  class="radio"
+                  value="<%= option.id %>"
+                />
+                <label for="<%= option.id %>"> <%= option.name %> </label>
               </div>
-       </div>
-       <script>
-              // function check() {
-              //        let options = document.querySelectorAll('.radio')
-              //        let form = document.getElementById('form')
-              //        let msg = document.getElementById('msg')
-              //        options.forEach((radio, i) => {
+              <% } %>
+              <div class="from-group">
+                <button
+                  type="submit"
+                  class="create"
+                  id="submitOpinion"
+                  onclick="check()"
+                >
+                  Submit Opinion
+                </button>
+                <a
+                  href="/polls/<%= poll._id %>"
+                  class="btnPollList"
+                  id="btnPollList"
+                  >View Poll Results</a
+                >
+                <a href="/" class="btnBacktohome" id="backtoHome"
+                  >Back to Home</a
+                >
+              </div>
+            </form>
+          </div>
 
-              //               if (radio.checked != true) {
+          <span id="msg"></span>
+        </div>
+      </div>
+    </div>
+    <script>
+      // function check() {
+      //        let options = document.querySelectorAll('.radio')
+      //        let form = document.getElementById('form')
+      //        let msg = document.getElementById('msg')
+      //        options.forEach((radio, i) => {
 
-              //                      form.submit()
+      //               if (radio.checked != true) {
 
-              //               } else {
-              //                      msg.innerHTML = "Please select atleast one"
+      //                      form.submit()
 
-              //               }
-              //        })
-              // }
-       </script>
-       <!-- <script src="../assets/js/poll.js" async defer></script> -->
-</body>
+      //               } else {
+      //                      msg.innerHTML = "Please select atleast one"
 
+      //               }
+      //        })
+      // }
+    </script>
+    <!-- <script src="../assets/js/poll.js" async defer></script> -->
+  </body>
 </html>
